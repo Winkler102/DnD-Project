@@ -4,24 +4,35 @@ import Token from "../components/Token";
 import "./style.css";
 
 const Home = () => {
+    const amount = 6;
+
     return (
         <div className="container">
             <div className="flexbox">
-                <Table id='table-1' className='table'>
+                <Table id='table-prime' className='tableHolder'>
                     <Token id='token-1' className='token' draggable='true'>
-                        <p>Token1</p>
+                        <p>T1</p>
+                    </Token>
+                    <Token id='token-2' className='token' draggable='true'>
+                        <p>T2</p>
                     </Token>
                 </Table>
 
-                <Table id='table-2' className='table'>
-                    <Token id='token-2' className='token' draggable='true'>
-                        <p>Token 2</p>
-                    </Token>
-                </Table>
-                
+                {[...Array(amount)].map((x, i) =>
+                    <Table id={'table-' + i} className='table' ></Table>
+                )}
+
             </div>
-        </div>
+        </div >
     );
 };
 
 export default Home;
+
+/* 
+<Table id='table-1' className='table'>
+    <Token id='token-1' className='token' draggable='true'>
+        <p>Token1</p>
+    </Token>
+</Table>
+ */
